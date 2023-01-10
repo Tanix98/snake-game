@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
 #snake-game {
     max-width: 530px;
     margin: auto;
@@ -25,4 +33,27 @@
 
 #score-text, #highscore-text, #score-number, #highscore-number {
     margin: 2px !important;
+}
+
+#reset-score-btn {
+    font-family: 'Roboto Condensed', sans-serif;
+    gap: 5px;
+    border: red;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#reset-score-btn:hover {
+    background-color: rgb(205, 0, 0);
+}
+
+header {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-family: sans-serif;
+    padding: 12px;
+    background-color: grey;
 }

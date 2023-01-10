@@ -2,6 +2,11 @@ const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const playerScore = document.querySelector("#score-number");
 const playerHighscore = document.querySelector("#highscore-number");
+const resetScoreBtn = document.querySelector("#reset-score-btn");
+
+if (localStorage.getItem("Highscore")) {
+    playerHighscore.innerHTML = localStorage.getItem("Highscore");
+}
 
 let snake = {
     unit: 25,
@@ -55,7 +60,6 @@ setInterval(draw, 150);
 
 function draw() {
     if (snake.y < 0 || snake.y > 575 || snake.x < 0 || snake.x > 575) {
-        alert("Game over x_x");
         snake.x = 0;
         snake.y = 0;
         snake.directionX = 0;
@@ -64,11 +68,18 @@ function draw() {
         apple.x = parseInt(Math.random() * 12) * snake.unit;
         snake.bodyX = [];
         snake.bodyY = [];
-        if (playerScore.innerHTML > playerHighscore.innerHTML) {
-            localStorage.setItem("highscore", playerScore.innerHTML);
+        if (Number(playerScore.innerHTML) > Number(playerHighscore.innerHTML)) {
+            alert("New High Score! ツ");
+        } else {
+            alert("Game Over! o︵o");
         }
-        playerHighscore.innerHTML = localStorage.getItem("Highscore");
-        console.log(localStorage.getItem("Highscore"));
+        console.log(playerScore.innerHTML + " omg " +  playerHighscore.innerHTML);
+        if (Number(playerScore.innerHTML) > Number(playerHighscore.innerHTML)) {
+            localStorage.setItem("Highscore", playerScore.innerHTML);
+        }
+        if (localStorage.getItem("Highscore")) {
+            playerHighscore.innerHTML = localStorage.getItem("Highscore");
+        }
         playerScore.innerHTML = 0;
     } else {
         snake.x += snake.directionX * snake.unit;
@@ -119,7 +130,10 @@ function moveBody() {
     }
 }
 
-
+resetScoreBtn.addEventListener('click', (e) => {
+    localStorage.removeItem("Highscore", playerScore.innerHTML);
+    location.reload();
+});
 
 
 /*const canvas = document.querySelector("#game-canvas");
