@@ -1,58 +1,49 @@
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
-const playerScore = document.querySelector("#player-score");
-const playerHighscore = document.querySelector("#player-highscore");
+const playerScore = document.querySelector("#score-number");
+const playerHighscore = document.querySelector("#highscore-number");
 
-// Snake
-let unit = 25;
-let posY = 0;
-let posX = 0;
-let directionX = 0;
-let directionY = 0;
-let bodyX = [];
-let bodyY = [];
+let snake = {
+    unit: 25,
+    y: 0,
+    x: 0,
+    directionX: 0,
+    directionY: 0,
+    color: "white",
+    bodyX: [],
+    bodyY: []
+}
 
-// Apple
-let appleUnit = 25;
-let posYapple = parseInt(Math.random() * 12) * unit;
-let posXapple = parseInt(Math.random() * 12) * unit;
+let apple = {
+    unit: 25,
+    y: 0,
+    x: 0
+}
+apple.y = parseInt(Math.random() * 12) * apple.unit,
+apple.x = parseInt(Math.random() * 12) * apple.unit
 
-/*let snake = (
-    posY = 0,
-    posX = 0,
-    directionX = 0,
-    directionY = 0,
-    color = "white"
-    bodyX [
-
-    ],
-    bodyY [
-
-    ]
-)*/
-
-ctx.fillRect(posX, posY, unit, unit);
+ctx.fillRect(snake.x, snake.y, snake.unit, snake.unit);
 
 document.addEventListener("keydown", move);
 
 function move(e) {
     switch (e.key) {
         case "ArrowLeft":
-            directionX = -1;
-            directionY = 0;
+            snake.directionX = -1;
+            snake.directionY = 0;
             break;
         case "ArrowUp":
-            directionX = 0;
-            directionY = -1;
+            snake.directionX = 0;
+            snake.directionY = -1;
             e.preventDefault();
             break;
         case "ArrowRight":
-            directionX = 1;
-            directionY = 0;
+            snake.directionX = 1;
+            snake.directionY = 0;
             break;
         case "ArrowDown":
-            directionX = 0;
-            directionY = 1;
+            snake.directionX = 0;
+            snake.directionY = 1;
             e.preventDefault();
             break;
         default: 
@@ -63,40 +54,45 @@ function move(e) {
 setInterval(draw, 150);
 
 function draw() {
-    if (posY < 0 || posY > 575 || posX < 0 || posX > 575) {
+    if (snake.y < 0 || snake.y > 575 || snake.x < 0 || snake.x > 575) {
         alert("Game over x_x");
-        posX = 0;
-        posY = 0;
-        directionX = 0;
-        directionY = 0;
-        posYapple = parseInt(Math.random() * 12) * unit;
-        posXapple = parseInt(Math.random() * 12) * unit;
-        bodyX = [];
-        bodyY = [];
+        snake.x = 0;
+        snake.y = 0;
+        snake.directionX = 0;
+        snake.directionY = 0;
+        apple.y = parseInt(Math.random() * 12) * snake.unit;
+        apple.x = parseInt(Math.random() * 12) * snake.unit;
+        snake.bodyX = [];
+        snake.bodyY = [];
+        if (playerScore.innerHTML > playerHighscore.innerHTML) {
+            localStorage.setItem("highscore", playerScore.innerHTML);
+        }
+        playerHighscore.innerHTML = localStorage.getItem("Highscore");
+        console.log(localStorage.getItem("Highscore"));
         playerScore.innerHTML = 0;
     } else {
-        posX += directionX * unit;
-        posY += directionY * unit;
+        snake.x += snake.directionX * snake.unit;
+        snake.y += snake.directionY * snake.unit;
     }
     ctx.clearRect(0, 0, 600, 600);
     // Check if snake hits apple
     eat();
-    // Snake
+    // Snake head
     ctx.fillStyle = "green";
-    ctx.fillRect(posX, posY, unit, unit);
-    // Draw body
-    for (let i = 0; i < bodyX.length; i++) {
-        ctx.fillRect(bodyX[i], bodyY[i], unit, unit)
+    ctx.fillRect(snake.x, snake.y, snake.unit, snake.unit);
+    // Draw snake body
+    for (let i = 0; i < snake.bodyX.length; i++) {
+        ctx.fillRect(snake.bodyX[i], snake.bodyY[i], snake.unit, snake.unit)
     }
     // Apple
     ctx.fillStyle = "red";
-    ctx.fillRect(posXapple, posYapple, appleUnit, appleUnit);
+    ctx.fillRect(apple.x, apple.y, apple.unit, apple.unit);
 }
 
 function eat() {
-    if (posX === posXapple && posY === posYapple) {
-        posYapple = parseInt(Math.random() * 12) * unit;
-        posXapple = parseInt(Math.random() * 12) * unit;
+    if (snake.x === apple.x && snake.y === apple.y) {
+        apple.y = parseInt(Math.random() * 12) * apple.unit;
+        apple.x = parseInt(Math.random() * 12) * apple.unit;
         playerScore.innerHTML++;
         grow();
     } else {
@@ -105,19 +101,21 @@ function eat() {
 }
 
 function grow() {
-    bodyX = [posX].concat(bodyX);
-    bodyY = [posY].concat(bodyY);
-    console.log(bodyX);
+    snake.bodyX = [snake.x].concat(snake.bodyX);
+    snake.bodyY = [snake.y].concat(snake.bodyY);
+    console.log("x: " + snake.bodyX);
+    console.log("y: " + snake.bodyY);
+    console.log(" ");
 }
 
 function moveBody() {
-    for (let i = bodyX.length; i > bodyX.length; i--) {
-        bodyX[i] = snake.bodyX[i-1];
-        bodyY[i] = snake.bodyY[i-1];
+    for (let i = snake.bodyX.length; i > snake.bodyX.length; i--) {
+        snake.bodyX[i] = snake.bodyX[i-1];
+        snake.bodyY[i] = snake.bodyY[i-1];
     }
-    if (bodyX > 0) {
-        bodyX[0] = posX;
-        bodyY[0] = posY;
+    if (snake.bodyX > 0) {
+        snake.bodyX[0] = snake.x;
+        snake.bodyY[0] = snake.y;
     }
 }
 

@@ -5,20 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css"/>
     <script defer src="/script.js"></script>
 </head>
 <body>
-    <canvas id="game-canvas" width="600" height="600"></canvas>
-    <div id="scores">
-        <div id="score">
-            <h3>Score: </h3>
-            <h3 id="player-score">0</h3>
+    <div id="snake-game">
+        <div id="scores">
+            <div id="score">
+                <h3 id="score-text">Score: </h3>
+                <h3 id="score-number">0</h3>
+            </div>
+            <div id="highscore">
+                <h3 id="highscore-text">Highscore: </h3>
+                <h3 id="highscore-number">0</h3>
+            </div>
         </div>
-        <div id="highscore">
-            <h3>Highscore: </h3>
-            <h3 id="player-highscore">0</h3>
-        </div>
+        <canvas id="game-canvas" width="600" height="600"></canvas>
     </div>
 </body>
 </html>
