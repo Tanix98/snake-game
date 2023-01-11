@@ -1,5 +1,7 @@
 # Snake game
 
+![snake icon](/favicon.svg)
+
 ## A simple snake game made using HTML and JavaScript. [Click here to play](https://google.com)
 
 ### Potential future features
@@ -10,6 +12,8 @@
 - Background image
 
 ### Known bugs:
-- Every third game started the snake will increase by two instead of one when eating the first apple
+- Snake body will often increase by two instead of one when eating the first apple
 - Snake cannot collide with the last part of its body
 - Grey wall only spawns as one block
+
+Icon by <a href="https://freeicons.io/profile/8939">Melvin ilham Oktaviansyah</a> on <a href="https://freeicons.io">freeicons.io</a>
