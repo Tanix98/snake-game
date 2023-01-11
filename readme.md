@@ -1,4 +1,4 @@
-# Snake game <img src="/favicon.svg" alt="snake icon" width="40" height="40" />
+# Snake game <img src="/favicon.svg" alt="snake icon" width="40" height="40"/>
 
 ## A simple snake game made using HTML and JavaScript. [Click here to play](https://google.com)
 
@@ -8,6 +8,7 @@
 - Snake able to turn backwards if no apples have been eaten
 - Sound effects
 - Background image
+- Game Over alert replaced with text on canvas element
 
 ### Known bugs:
 - Snake body will often increase by two instead of one when eating the first apple
