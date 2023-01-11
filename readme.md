@@ -1,6 +1,4 @@
-# Snake game
-
-![snake icon](/favicon.svg)
+# Snake game <img src="/favicon.svg" alt="snake icon" width="200" height="200" />
 
 ## A simple snake game made using HTML and JavaScript. [Click here to play](https://google.com)
 
@@ -16,4 +14,4 @@
 - Snake cannot collide with the last part of its body
 - Grey wall only spawns as one block
 
-Icon by <a href="https://freeicons.io/profile/8939">Melvin ilham Oktaviansyah</a> on <a href="https://freeicons.io">freeicons.io</a>
+Snake icon by <a href="https://freeicons.io/profile/8939">Melvin ilham Oktaviansyah</a> on <a href="https://freeicons.io">freeicons.io</a>
