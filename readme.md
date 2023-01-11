@@ -4,14 +4,15 @@
 
 ### Potential future features
 - Grey walls with randomized sizes and spawn locations scattered throughout the map. Will result in game over if snake hits them
-- Different colored snake head
+- ~~Different colored snake head~~
+- ~~Improved accessibility with aria label, role and colorblind friendly color palette~~
 - Snake able to turn backwards if no apples have been eaten
 - Sound effects
 - Background image
 - Game Over alert replaced with text on canvas element
 
 ### Known issues:
-- Snake body will often increase by two instead of one when eating the first apple
+- Snake body will often increase by two instead of one when eating the first apple, and a green block will show up for 1 second nearby
 - Snake cannot collide with the last part of its body
 - Grey wall only spawns as one block
 - Low chance of snake spawning inside wall
