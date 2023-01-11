@@ -1,4 +1,4 @@
-# Snake game <img src="/favicon.svg" alt="snake icon" width="200" height="200" />
+# Snake game <img src="/favicon.svg" alt="snake icon" width="40" height="40" />
 
 ## A simple snake game made using HTML and JavaScript. [Click here to play](https://google.com)
 
