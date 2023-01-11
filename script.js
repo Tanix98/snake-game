@@ -34,8 +34,8 @@ let wall = {
     x: 0,
     y: 0,
     color: "grey",
-    bodyX: [375,350,320],
-    bodyY: [525,525,525]
+    bodyX: [],
+    bodyY: []
 }
 wall.x = parseInt(Math.random() * 24) * wall.unit,
 wall.y = parseInt(Math.random() * 24) * wall.unit
@@ -121,13 +121,22 @@ function draw() {
     ctx.fillStyle = apple.color;
     ctx.fillRect(apple.x, apple.y, apple.unit, apple.unit);
     // Draw snake head
-    ctx.fillStyle = snake.color;
+    ctx.fillStyle = "#006E00";
     ctx.fillRect(snake.x, snake.y, snake.unit, snake.unit);
+    ctx.fillStyle = snake.color;
     // Draw snake body
     for (let i = 0; i < snake.bodyX.length; i++) {
         ctx.fillRect(snake.bodyX[i], snake.bodyY[i], snake.unit, snake.unit)
     }
 }
+
+/*function drawText() {
+    // Draw canvas text
+    ctx.font = "small-caps bold 40px arial";
+    ctx.fillStyle = "lightgreen";
+    ctx.textAlign = "center";
+    ctx.fillText("game over! o︵o", 600/2, 550/2);
+}*/
 
 function eat() {
     // Eat apple
@@ -139,6 +148,7 @@ function eat() {
             frameSkips--;
             console.log("speed");
         }
+        // Spawn a new apple if spawncheck is true
         do {
             apple.y = parseInt(Math.random() * 24) * apple.unit;
             apple.x = parseInt(Math.random() * 24) * apple.unit;
@@ -189,18 +199,13 @@ function spawnCheck() {
     return false;
 }
 
+// Reset highscore button
 resetScoreBtn.addEventListener('click', () => {
     if (localStorage.getItem("Highscore")) {
         localStorage.removeItem("Highscore");
         location.reload();
     }
 });
-
-function loseCheck() {
-    if (collisionCheck()) {
-        gameOver();
-    }
-}
 
 function gameOver() {
     frameSkips = 10

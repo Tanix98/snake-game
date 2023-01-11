@@ -10,9 +10,10 @@
 - Background image
 - Game Over alert replaced with text on canvas element
 
-### Known bugs:
+### Known issues:
 - Snake body will often increase by two instead of one when eating the first apple
 - Snake cannot collide with the last part of its body
 - Grey wall only spawns as one block
+- Low chance of snake spawning inside wall
 
 Snake icon by <a href="https://freeicons.io/profile/8939">Melvin ilham Oktaviansyah</a> on <a href="https://freeicons.io">freeicons.io</a>
