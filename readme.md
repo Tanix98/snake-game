@@ -1,6 +1,6 @@
 # Snake game <img src="/favicon.svg" alt="snake icon" width="40" height="40"/>
 
-## A simple snake game made using HTML and JavaScript. [Click here to play](https://google.com)
+## A simple snake game made using HTML and JavaScript. [Click here to play](https://tanix98.github.io/snake-game/)
 
 ### Potential future features
 - Grey walls with randomized sizes and spawn locations scattered throughout the map. Will result in game over if snake hits them
