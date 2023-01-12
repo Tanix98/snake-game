@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const playerScore = document.querySelector("#score-number");
 const playerHighscore = document.querySelector("#highscore-number");
 const resetScoreBtn = document.querySelector("#reset-score-btn");
-/*let score = 0;*/
+//let score = 0
 
 if (localStorage.getItem("Highscore")) {
     playerHighscore.innerHTML = localStorage.getItem("Highscore");
