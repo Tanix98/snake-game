@@ -3,6 +3,7 @@
 ## A simple snake game made using HTML and JavaScript. [Click here to play](https://tanix98.github.io/snake-game/)
 
 ### Potential future features
+- Mobile playability
 - Grey walls with randomized sizes and spawn locations scattered throughout the map. Will result in game over if snake hits them
 - ~~Different colored snake head~~
 - ~~Improved accessibility with aria label, role and colorblind friendly color palette~~
