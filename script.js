@@ -15,7 +15,7 @@ let snake = {
     y: 0,
     directionX: 0,
     directionY: 0,
-    color: "#478E00",
+    color: "#73d002",
     bodyX: [],
     bodyY: []
 }
@@ -24,7 +24,7 @@ let apple = {
     unit: 25,
     x: 0,
     y: 0,
-    color: "#C44601"
+    color: "#ac1a00"
 }
 apple.x = parseInt(Math.random() * 24) * apple.unit,
 apple.y = parseInt(Math.random() * 24) * apple.unit
@@ -33,7 +33,7 @@ let wall = {
     unit: 25,
     x: 0,
     y: 0,
-    color: "#9597A4",
+    color: "#c1c1c1",
     bodyX: [],
     bodyY: []
 }
@@ -121,7 +121,7 @@ function draw() {
     ctx.fillStyle = apple.color;
     ctx.fillRect(apple.x, apple.y, apple.unit, apple.unit);
     // Draw snake head
-    ctx.fillStyle = "#5BA300";
+    ctx.fillStyle = "#66ba00";
     ctx.fillRect(snake.x, snake.y, snake.unit, snake.unit);
     ctx.fillStyle = snake.color;
     // Draw snake body
