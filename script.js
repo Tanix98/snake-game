@@ -27,7 +27,7 @@ let mango = {
     color: '#FFC107',
 };
 (mango.x = parseInt(Math.random() * 24) * mango.unit),
-    (omango.y = parseInt(Math.random() * 24) * mango.unit);
+    (mango.y = parseInt(Math.random() * 24) * mango.unit);
 
 let wall = {
     unit: 25,
